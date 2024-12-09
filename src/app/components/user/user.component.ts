@@ -5,12 +5,13 @@ import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {User} from "../../shared/models/User";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-user',
   standalone: true,
   imports: [
-    ComponentsModule
+    ComponentsModule,
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'

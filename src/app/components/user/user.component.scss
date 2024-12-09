@@ -1,3 +1,25 @@
+.table-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.filter-container{
+  width: 50%;
+}
+
+.rounded-filter{
+  width: 100%;
+}
+
+.action-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+
 table {
   width: 100%;
 }

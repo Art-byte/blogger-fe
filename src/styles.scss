@@ -24,6 +24,7 @@ $theme: mat.define-dark-theme((
 // 3. Aplica el tema a todos los componentes de Angular Material
 @include mat.all-component-themes($theme);
 
+
 // 4. Estilos globales
 html, body {
   height: 100%;
