@@ -1,4 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// 1. Define la paleta de colores
+$primary: mat.define-palette(mat.$cyan-palette);
+$accent: mat.define-palette(mat.$orange-palette, A200);
+$warn: mat.define-palette(mat.$red-palette);
+
+// 2. Define el tema oscuro
+$theme: mat.define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  ),
+  background: (
+    default: #121212,
+    app-bar: #1e1e1e,
+    card: #1f1f1f,
+    dialog: #222222,
+    hover: #333333,
+  ),
+));
+
+// 3. Aplica el tema a todos los componentes de Angular Material
+@include mat.all-component-themes($theme);
+
+// 4. Estilos globales
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: mat.get-color-from-palette(mat.$grey-palette, 900); /* Fondo oscuro */
+  color: #ffffff; /* Texto claro */
+}
+
+.mat-app-background {
+  background-color: mat.get-color-from-palette(mat.$grey-palette, 900); /* Fondo oscuro */
+  color: #ffffff;
+}
