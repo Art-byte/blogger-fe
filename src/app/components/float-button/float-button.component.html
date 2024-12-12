@@ -1,0 +1,14 @@
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>library_books</mat-icon>
+    <span>New blog</span>
+  </button>
+</mat-menu>
+<button
+  mat-fab
+  color="primary"
+  aria-label="Menu"
+  [matMenuTriggerFor]="menu"
+  class="fab-button">
+  <mat-icon>menu</mat-icon>
+</button>
