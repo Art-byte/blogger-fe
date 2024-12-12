@@ -2,6 +2,9 @@
   height: 100vh; // Altura completa de la ventana
 }
 
+.mat-sidenav-content {
+  padding: 16px; /* Agrega un espacio uniforme alrededor del contenido */
+}
 .sidenav {
   width: 250px; // Ancho del sidenav
   display: flex;
