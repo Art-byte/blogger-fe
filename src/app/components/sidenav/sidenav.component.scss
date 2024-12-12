@@ -1,12 +1,36 @@
 .sidenav-container {
-  height: 100vh;
+  height: 100vh; // Altura completa de la ventana
 }
 
 .sidenav {
-  width: 250px;
+  width: 250px; // Ancho del sidenav
+  display: flex;
+  flex-direction: column; // Asegura que los elementos se apilen verticalmente
+  padding: 16px 0; // Espaciado interno
+  background-color: #333; // Fondo opcional
+  color: white; // Texto blanco
 }
 
-.sidenav mat-nav-list a {
-  text-decoration: none;
-  color: inherit;
+.profile-container {
+  display: flex;
+  justify-content: center; // Centrar horizontalmente
+  align-items: center; // Centrar verticalmente
+  flex-direction: column; // Alinear elementos verticalmente
+  margin-bottom: 20px; // Espacio entre la imagen y el menú
+}
+
+.profile-image {
+  width: 100px; // Ancho de la imagen
+  height: 100px; // Altura de la imagen
+  border-radius: 50%; // Hace la imagen circular
+  border: 3px solid white; // Añade un borde blanco
+  object-fit: cover; // Asegura que la imagen se ajuste bien al contenedor
+}
+
+.mat-nav-list a {
+  color: white; // Colores para las opciones
+}
+
+.mat-nav-list a:hover {
+  background-color: rgba(255, 255, 255, 0.1); // Efecto hover
 }
