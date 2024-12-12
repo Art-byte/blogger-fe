@@ -10,6 +10,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListItem, MatNavList} from "@angular/material/list";
 
 @NgModule({
   declarations: [],
@@ -24,7 +26,10 @@ import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListItem,
+    MatNavList
   ],
   exports: [
     ReactiveFormsModule,
@@ -36,7 +41,10 @@ import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListItem,
+    MatNavList
   ]
 })
 export class ComponentsModule { }
