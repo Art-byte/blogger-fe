@@ -1,0 +1,18 @@
+.create-blog-container {
+  max-width: 600px;
+  margin: 32px auto; // Centrado con margen superior
+  padding: 24px;
+  background-color: #f1f4f9; // Fondo claro para destacar el formulario
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); // Sombra ligera
+}
+
+.mat-form-field {
+  width: 100%; // Asegurar que todos los campos sean de ancho completo
+  margin-bottom: 16px;
+}
+
+.file-upload {
+  margin-top: 16px;
+  text-align: center; // Centrar el área de subida
+}

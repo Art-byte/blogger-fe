@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit{
   }
 
   login(){
-    this.router.navigate(['/home/users']);
+    this.router.navigate(['/home/blogs']);
   }
 
 }
