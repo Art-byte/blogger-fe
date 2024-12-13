@@ -1,2 +1,32 @@
+<div class="header-container">
+  <button mat-button [routerLink]="['/home']">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    <span>Back</span>
+  </button>
+  <h2>Create Blog</h2>
+</div>
 
+<form>
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput type="text" name="title" required />
+  </mat-form-field>
 
+  <mat-form-field appearance="fill">
+    <mat-label>Content</mat-label>
+    <textarea matInput name="content" required rows="8"></textarea>
+  </mat-form-field>
+
+  <div class="file-upload">
+    <button mat-raised-button color="primary" (click)="triggerFileInput()">
+      Add files
+    </button>
+    <p *ngIf="files.length > 0">
+      {{ files.length }} archivo(s) seleccionado(s)
+    </p>
+
+    <button mat-raised-button color="accent" type="submit">
+      Post
+    </button>
+  </div>
+</form>

@@ -1,18 +1,38 @@
-.create-blog-container {
-  max-width: 600px;
-  margin: 32px auto; // Centrado con margen superior
-  padding: 24px;
-  background-color: #f1f4f9; // Fondo claro para destacar el formulario
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); // Sombra ligera
+form {
+  display: grid; /* Utiliza grid para organizar los elementos */
+  grid-template-rows: auto; /* Los elementos se organizan en filas */
+  grid-template-columns: 1fr; /* Por defecto, los inputs ocupan todo el ancho */
+  gap: 16px; /* Espaciado entre filas */
+  width: 100%; /* El formulario ocupa todo el ancho disponible */
+  max-width: 900px; /* Límite opcional para pantallas grandes */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 20px;
+}
+
+h2 {
+  grid-column: 1 / -1; /* Título ocupa toda la fila */
+  text-align: center;
+  color: white;
 }
 
 .mat-form-field {
-  width: 100%; // Asegurar que todos los campos sean de ancho completo
-  margin-bottom: 16px;
+  width: 100%; /* Inputs ocupan todo el ancho */
 }
 
 .file-upload {
-  margin-top: 16px;
-  text-align: center; // Centrar el área de subida
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaciado entre el botón y el texto */
+}
+
+button {
+  display: flex; /* Alinea el ícono y el texto en línea horizontal */
+  align-items: center; /* Asegura que estén centrados verticalmente */
+  gap: 8px; /* Espaciado entre el ícono y el texto */
+  text-transform: none; /* Opcional: evita que el texto se ponga en mayúsculas */
+  font-size: 16px; /* Tamaño de fuente para el texto */
+}
+
+mat-icon {
+  font-size: 24px; /* Ajusta el tamaño del ícono si es necesario */
 }
