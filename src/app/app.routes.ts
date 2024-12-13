@@ -13,6 +13,7 @@ export const routes: Routes = [
     path: "home",
     component: HomeComponent,
     children: [
+      {path: "", redirectTo: "blogs", pathMatch: 'full'},
       {path: "blogs", component: BlogDashboardComponent},
       {path: "create", component: CreateBlogComponent},
       { path: "users", component: UserComponent},

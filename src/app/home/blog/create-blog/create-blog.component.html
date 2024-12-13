@@ -21,10 +21,10 @@
     <button mat-raised-button color="primary" (click)="triggerFileInput()">
       Add files
     </button>
-    <p *ngIf="files.length > 0">
-      {{ files.length }} archivo(s) seleccionado(s)
-    </p>
 
+    @if (files.length > 0){
+      <p>{{ files.length }} file(s) selected</p>
+    }
     <button mat-raised-button color="accent" type="submit">
       Post
     </button>
