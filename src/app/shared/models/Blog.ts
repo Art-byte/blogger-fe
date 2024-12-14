@@ -1,5 +1,5 @@
 
-export interface Blog{
+export class Blog{
   id?: string;
   title: string;
   content: string;
@@ -7,7 +7,7 @@ export interface Blog{
   likes?: number;
   shares?: number;
   files?: string;
-  createAt: Date;
-  status: string;
+  createAt?: Date;
+  status?: string;
   authorId: string;
 }

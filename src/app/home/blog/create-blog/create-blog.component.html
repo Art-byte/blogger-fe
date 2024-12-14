@@ -6,26 +6,26 @@
   <h2>Create Blog</h2>
 </div>
 
-<form>
+<form [formGroup]="reactiveForm">
   <mat-form-field appearance="fill">
     <mat-label>Title</mat-label>
-    <input matInput type="text" name="title" required />
+    <input matInput type="text" name="title" formControlName="title" required />
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Content</mat-label>
-    <textarea matInput name="content" required rows="8"></textarea>
+    <textarea matInput name="content" formControlName="content" required rows="8"></textarea>
   </mat-form-field>
 
   <div class="file-upload">
-    <button mat-raised-button color="primary" (click)="triggerFileInput()">
+    <button mat-raised-button color="primary" type="button" (click)="triggerFileInput()">
       Add files
     </button>
 
     @if (files.length > 0){
       <p>{{ files.length }} file(s) selected</p>
     }
-    <button mat-raised-button color="accent" type="submit">
+    <button mat-raised-button color="accent" type="button" (click)="saveBlog()">
       Post
     </button>
   </div>

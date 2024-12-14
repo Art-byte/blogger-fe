@@ -1,5 +1,5 @@
 
-export interface Comments{
+export class Comments{
   id?: string;
   comment: string;
   createAt?: Date;
