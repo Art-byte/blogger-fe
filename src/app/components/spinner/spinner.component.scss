@@ -1,0 +1,16 @@
+
+.spinner-container {
+  display: flex; // Flexbox para alinear los elementos
+  flex-direction: column; // Alinea spinner y texto en columna
+  align-items: center; // Centra horizontalmente
+  justify-content: center; // Centra verticalmente
+  gap: 10px; // Espacio entre el spinner y el texto
+  height: 100%; // Opcional: Altura completa del contenedor
+  text-align: center;
+
+  .loading-text {
+    font-size: 14px; // Tamaño del texto
+    color: #555; // Color opcional
+    font-weight: 500; // Peso de la fuente
+  }
+}

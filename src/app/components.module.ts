@@ -9,10 +9,11 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
-import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
+import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [],
@@ -31,9 +32,11 @@ import {MatMenuModule} from "@angular/material/menu";
     MatSidenavModule,
     MatListItem,
     MatNavList,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   exports: [
+    CommonModule,
     ReactiveFormsModule,
     MatPaginatorModule,
     MatSortModule,
@@ -47,7 +50,8 @@ import {MatMenuModule} from "@angular/material/menu";
     MatSidenavModule,
     MatListItem,
     MatNavList,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ]
 })
 export class ComponentsModule { }

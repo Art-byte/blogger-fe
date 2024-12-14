@@ -1,19 +1,34 @@
 <mat-sidenav-container class="sidenav-container">
-  <!-- Sidenav -->
   <mat-sidenav [mode]="'side'" [(opened)]="isOpen" class="sidenav">
+    <!-- Contenedor del perfil -->
     <div class="profile-container">
-      <img src="/assets/img/blank-profile-picture-973460_1280.png" alt="User Profile" class="profile-image" />
+      <img src="/assets/img/blank-profile-picture-973460_1280.png"
+           alt="User Profile"
+           [routerLink]="['/home/profile']"
+           class="profile-image"
+           style="cursor: pointer" />
       <br>
-      <strong>USERNAME</strong>
+      <strong class="profile-username">USERNAME</strong>
     </div>
 
+    <!-- Lista de navegación -->
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['/home/profile']">Profile</a>
-      <a mat-list-item [routerLink]="['/home/blogs']">Home</a>
-      <a mat-list-item [routerLink]="['/home/users']">Users</a>
+      <a mat-list-item [routerLink]="['/home/blogs']">
+        <span class="nav-item-content">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </span>
+      </a>
+      <a mat-list-item [routerLink]="['/home/users']">
+        <span class="nav-item-content">
+          <mat-icon>group</mat-icon>
+          <span>Users</span>
+        </span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
 
+  <!-- Contenido principal -->
   <mat-sidenav-content>
     <ng-content></ng-content>
   </mat-sidenav-content>

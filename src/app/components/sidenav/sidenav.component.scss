@@ -1,39 +1,68 @@
+// Contenedor principal del sidenav
 .sidenav-container {
   height: 100vh; // Altura completa de la ventana
 }
 
 .mat-sidenav-content {
-  padding: 16px; /* Agrega un espacio uniforme alrededor del contenido */
+  padding: 16px; // Espaciado alrededor del contenido principal
 }
+
+// Estilos para el sidenav
 .sidenav {
   width: 250px; // Ancho del sidenav
   display: flex;
-  flex-direction: column; // Asegura que los elementos se apilen verticalmente
-  padding: 16px 0; // Espaciado interno
-  background-color: #333; // Fondo opcional
-  color: white; // Texto blanco
+  flex-direction: column;
+  padding: 16px 0;
+  background-color: #333; // Fondo oscuro
+  color: white;
 }
 
+// Contenedor del perfil
 .profile-container {
   display: flex;
-  justify-content: center; // Centrar horizontalmente
-  align-items: center; // Centrar verticalmente
-  flex-direction: column; // Alinear elementos verticalmente
-  margin-bottom: 20px; // Espacio entre la imagen y el menú
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .profile-image {
-  width: 100px; // Ancho de la imagen
-  height: 100px; // Altura de la imagen
-  border-radius: 50%; // Hace la imagen circular
-  border: 3px solid white; // Añade un borde blanco
-  object-fit: cover; // Asegura que la imagen se ajuste bien al contenedor
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; // Imagen circular
+  border: 3px solid white;
+  object-fit: cover;
 }
 
+.profile-username {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+// Lista de navegación
 .mat-nav-list a {
-  color: white; // Colores para las opciones
+  display: flex;
+  align-items: center; // Alinear ícono y texto verticalmente
+  gap: 10px; // Espacio entre ícono y texto
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1); // Efecto hover
+  }
 }
 
-.mat-nav-list a:hover {
-  background-color: rgba(255, 255, 255, 0.1); // Efecto hover
+// Contenedor del ícono y texto
+.nav-item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+// Tamaño de íconos
+mat-icon {
+  font-size: 24px;
+  color: white;
 }
