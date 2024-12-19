@@ -3,6 +3,8 @@ import {ComponentsModule} from "../../components.module";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SpinnerComponent} from "../../components/spinner/spinner.component";
+import {AuthService} from "../../shared/service/auth.service";
+import {AuthRequest} from "../../shared/models/auth_models/AuthRequest";
 
 @Component({
   selector: 'app-login',
@@ -16,18 +18,21 @@ import {SpinnerComponent} from "../../components/spinner/spinner.component";
 })
 export class LoginComponent implements OnInit{
   showSpinner = true;
+  reactiveForm: FormGroup;
+  authReq: AuthRequest;
   private readonly router = inject(Router);
   private readonly loginForm = inject(FormBuilder);
+  private readonly authService = inject(AuthService);
 
-  public reactiveForm: FormGroup = this.loginForm.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required]
-  });
-
-  get username() { return this.reactiveForm.get('username'); }
-  get password() { return this.reactiveForm.get('password'); }
+  initForm(): void{
+    this.reactiveForm = this.loginForm.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
+    this.initForm();
     this.reactiveForm.reset();
     this.showSpinner = true;
     setTimeout(() => {
@@ -36,7 +41,14 @@ export class LoginComponent implements OnInit{
   }
 
   login(){
-    this.router.navigate(['/home/blogs']);
+    this.authReq = new AuthRequest();
+    this.authReq.username = this.reactiveForm.get('username').value;
+    this.authReq.password = this.reactiveForm.get('password').value;
+    this.authService.login(this.authReq).subscribe(data => {
+      console.log(this.authReq);
+      console.log(data);
+      this.router.navigate(['/home/blogs']);
+    })
   }
 
 }
