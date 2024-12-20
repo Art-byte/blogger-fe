@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {User} from "../models/User";
+import {Role} from "../models/Role";
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,8 @@ export class UserService {
     return this.http.get<User>(`${this.baseURL}/getUser/${userId}`);
   }
 
-  getRoles(): Observable<any>{
-    return this.http.get(`${this.baseURL}/roles`);
+  getRoles(): Observable<Role[]>{
+    return this.http.get<Role[]>(`${this.baseURL}/roles`);
   }
 
   createUser(user: User): Observable<any>{

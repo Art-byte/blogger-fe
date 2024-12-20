@@ -22,14 +22,14 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.removeItem("token");
-    localStorage.clear();
+    sessionStorage.removeItem("token");
+    sessionStorage.clear();
     this.router.navigate(['/']);
   }
 
   saveToken(token: string){
     if(token != null){
-      localStorage.setItem("token", token);
+      sessionStorage.setItem("token", token);
     }
   }
 
