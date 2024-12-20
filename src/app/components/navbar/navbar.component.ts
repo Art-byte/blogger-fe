@@ -2,6 +2,7 @@ import {Component, inject} from '@angular/core';
 import {ComponentsModule} from "../../components.module";
 import {Router} from "@angular/router";
 import {SidenavService} from "../../shared/service/sidenav.service";
+import {AuthService} from "../../shared/service/auth.service";
 
 @Component({
   selector: 'app-navbar',
@@ -16,9 +17,10 @@ export class NavbarComponent {
 
   private readonly router = inject(Router);
   private readonly sidenavService = inject(SidenavService);
+  private readonly authService = inject(AuthService);
 
   logout(){
-    this.router.navigate(['/']);
+    this.authService.logout();
   }
 
   toggleSidenav(){

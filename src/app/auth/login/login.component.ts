@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SpinnerComponent} from "../../components/spinner/spinner.component";
 import {AuthService} from "../../shared/service/auth.service";
 import {AuthRequest} from "../../shared/models/auth_models/AuthRequest";
+import {AuthResponse} from "../../shared/models/auth_models/AuthResponse";
 
 @Component({
   selector: 'app-login',
@@ -44,9 +45,8 @@ export class LoginComponent implements OnInit{
     this.authReq = new AuthRequest();
     this.authReq.username = this.reactiveForm.get('username').value;
     this.authReq.password = this.reactiveForm.get('password').value;
-    this.authService.login(this.authReq).subscribe(data => {
-      console.log(this.authReq);
-      console.log(data);
+    this.authService.login(this.authReq).subscribe((data: AuthResponse) => {
+      this.authService.saveToken(data.jwt);
       this.router.navigate(['/home/blogs']);
     })
   }
