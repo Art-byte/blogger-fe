@@ -5,6 +5,7 @@ import {AuthRequest} from "../models/auth_models/AuthRequest";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {AuthResponse} from "../models/auth_models/AuthResponse";
+import {jwtDecode} from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,35 @@ export class AuthService {
     if(token != null){
       localStorage.setItem("token", token);
     }
+  }
+
+  decodeToken(): any{
+    try{
+      const token = localStorage.getItem("token");
+      return jwtDecode(token);
+    } catch (error){
+      console.error("invalid token", error);
+      return null;
+    }
+  }
+
+  getRoleFromToken(): string | null{
+    const decoded = this.decodeToken();
+    return decoded ? decoded.role : null;
+  }
+
+  getUsernameFromToken(): string | null {
+    const decoded = this.decodeToken();
+    return decoded ? decoded.sub : null;
+  }
+
+  isTokenExpired(): boolean{
+    const decoded = this.decodeToken();
+    if(!decoded || !decoded.exp){
+      return true;
+    }
+    const now = Math.floor(new Date().getTime()/100);
+    return decoded.exp < now;
   }
 
 }
