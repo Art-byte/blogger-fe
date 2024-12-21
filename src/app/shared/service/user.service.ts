@@ -20,6 +20,10 @@ export class UserService {
     return this.http.get<User>(`${this.baseURL}/getUser/${userId}`);
   }
 
+  getUserByUsername(username: string): Observable<User>{
+    return this.http.get<User>(`${this.baseURL}/getUsername/${username}`)
+  }
+
   getRoles(): Observable<Role[]>{
     return this.http.get<Role[]>(`${this.baseURL}/roles`);
   }

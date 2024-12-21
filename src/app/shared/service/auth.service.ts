@@ -35,12 +35,22 @@ export class AuthService {
 
   decodeToken(): any{
     try{
-      const token = localStorage.getItem("token");
+      const token = sessionStorage.getItem("token");
       return jwtDecode(token);
     } catch (error){
       console.error("invalid token", error);
       return null;
     }
+  }
+
+  saveRole(){
+    const role = this.getRoleFromToken();
+    sessionStorage.setItem("role", role);
+  }
+
+  saveUsername(){
+    const username = this.getUsernameFromToken();
+    sessionStorage.setItem("username", username);
   }
 
   getRoleFromToken(): string | null{
