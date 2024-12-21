@@ -43,15 +43,6 @@ export class AuthService {
     }
   }
 
-  saveRole(){
-    const role = this.getRoleFromToken();
-    sessionStorage.setItem("role", role);
-  }
-
-  saveUsername(){
-    const username = this.getUsernameFromToken();
-    sessionStorage.setItem("username", username);
-  }
 
   getRoleFromToken(): string | null{
     const decoded = this.decodeToken();

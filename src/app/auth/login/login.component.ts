@@ -46,8 +46,6 @@ export class LoginComponent implements OnInit{
       this.authService.saveToken(data.jwt);
       setTimeout(() => {
         this.showSpinner = false;
-        this.authService.saveRole();
-        this.authService.saveUsername();
         this.router.navigate(['/home/blogs']);
       }, 3000);
     })
