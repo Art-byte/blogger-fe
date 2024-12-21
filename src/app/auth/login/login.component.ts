@@ -18,7 +18,7 @@ import {AuthResponse} from "../../shared/models/auth_models/AuthResponse";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit{
-  showSpinner = true;
+  showSpinner = false;
   reactiveForm: FormGroup;
   authReq: AuthRequest;
   private readonly router = inject(Router);
@@ -35,19 +35,19 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
     this.initForm();
     this.reactiveForm.reset();
-    this.showSpinner = true;
-    setTimeout(() => {
-      this.showSpinner = false;
-    }, 3000);
   }
 
   login(){
+    this.showSpinner = true;
     this.authReq = new AuthRequest();
     this.authReq.username = this.reactiveForm.get('username').value;
     this.authReq.password = this.reactiveForm.get('password').value;
     this.authService.login(this.authReq).subscribe((data: AuthResponse) => {
       this.authService.saveToken(data.jwt);
-      this.router.navigate(['/home/blogs']);
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.router.navigate(['/home/blogs']);
+      }, 3000);
     })
   }
 
