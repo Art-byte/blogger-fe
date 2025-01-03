@@ -3,12 +3,15 @@ import {UserService} from "../../shared/service/user.service";
 import {AuthService} from "../../shared/service/auth.service";
 import {ComponentsModule} from "../../components.module";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UserProfile} from "../../shared/models/profile/UserProfile";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
   imports: [
-    ComponentsModule
+    ComponentsModule,
+    RouterLink
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
@@ -16,12 +19,14 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class ProfileComponent implements OnInit{
 
   reactiveForm: FormGroup;
+  userData: UserProfile;
   private readonly profileForm = inject(FormBuilder);
   private readonly authService = inject(AuthService);
   private readonly userService = inject(UserService);
 
   initForm(): void{
     this.reactiveForm = this.profileForm.group({
+      username: ['', Validators.required],
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       aboutMe: ['', Validators.required],
@@ -35,9 +40,8 @@ export class ProfileComponent implements OnInit{
 
   getDataFromUser(){
     const username = this.authService.getUsernameFromToken();
-    console.log(username);
     this.userService.getUserByUsername(username).subscribe(user => {
-      console.log(user);
+      this.userData = user;
     });
   }
 
