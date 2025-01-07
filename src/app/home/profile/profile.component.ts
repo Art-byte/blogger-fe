@@ -5,6 +5,7 @@ import {ComponentsModule} from "../../components.module";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserProfile} from "../../shared/models/profile/UserProfile";
 import {RouterLink} from "@angular/router";
+import {Blog} from "../../shared/models/Blog";
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +24,29 @@ export class ProfileComponent implements OnInit{
   private readonly profileForm = inject(FormBuilder);
   private readonly authService = inject(AuthService);
   private readonly userService = inject(UserService);
+
+  blogsList :Blog[] = [
+    {
+      title: "Blog de muestra",
+      content: "Este es el contenido de este blog",
+      authorId: "Arturo Pedraza",
+    },
+    {
+      title: "Blog de muestra",
+      content: "Este es el contenido de este blog",
+      authorId: "Arturo Pedraza",
+    },
+    {
+      title: "Blog de muestra",
+      content: "Este es el contenido de este blog",
+      authorId: "Arturo Pedraza",
+    },
+    {
+      title: "Blog de muestra",
+      content: "Este es el contenido de este blog",
+      authorId: "Arturo Pedraza",
+    },
+  ];
 
   initForm(): void{
     this.reactiveForm = this.profileForm.group({
