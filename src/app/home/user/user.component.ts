@@ -36,6 +36,7 @@ export class UserComponent implements OnInit, AfterViewInit{
 
   fetchUsers(){
     this.userService.getAllUsers().subscribe(userList => {
+      console.log(userList);
       this.dataSource.data = userList;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

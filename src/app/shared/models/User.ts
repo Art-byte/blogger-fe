@@ -6,7 +6,7 @@ export class User{
   email: string;
   name: string;
   lastName: string;
-  role: string;
+  roleId: string;
   status?: string;
   createAt?: string;
   socialMedia: string[];
